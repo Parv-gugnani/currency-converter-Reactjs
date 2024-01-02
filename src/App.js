@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Axios from "axios"; // Import Axios correctly
+import Axios from "axios";
 import Dropdown from "react-dropdown";
 import { HiSwitchHorizontal } from "react-icons/hi";
 import "react-dropdown/style.css";
@@ -8,34 +8,34 @@ import "./App.css";
 function App() {
   const [info, setInfo] = useState({});
   const [input, setInput] = useState(0);
-  const [from, setFrom] = useState("usd");
-  const [to, setTo] = useState("inr");
+  const [from, setFrom] = useState("USD");
+  const [to, setTo] = useState("EUR");
   const [options, setOptions] = useState([]);
   const [output, setOutput] = useState(0);
 
   useEffect(() => {
     Axios.get(
-      `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${from}.json`
+      "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies.json"
     )
       .then((res) => {
-        setInfo(res.data[from]);
+        setInfo(res.data);
+        setOptions(Object.keys(res.data));
       })
       .catch((error) => {
         console.error("Error fetching currency data:", error);
       });
-  }, [from]);
+  }, []);
 
   useEffect(() => {
-    if (info) {
-      setOptions(Object.keys(info));
-      convert();
-    }
-  }, [info, from, to, input]);
+    convert();
+  }, [from, to, input]);
 
   function convert() {
-    if (info && info[to]) {
-      var rate = info[to];
-      setOutput(input * rate);
+    if (info && info[from] && info[to]) {
+      var fromRate = info[from];
+      var toRate = info[to];
+      var convertedAmount = (input / fromRate) * toRate;
+      setOutput(convertedAmount);
     }
   }
 

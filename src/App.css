@@ -1,69 +1,100 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  background-image: linear-gradient(120deg, #ef476f 0%, #ffd166 100%);
 }
 
 .heading {
   font-family: 'Pacifico', cursive;
-  font-size: 35px;
+  font-size: 45px;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .container {
   height: auto;
-  width: 800px;
+  width: 80%;
+  max-width: 800px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
 }
 
 input {
-  padding-left: 5px;
-  font-size: 20px;
+  padding: 10px;
+  font-size: 18px;
   height: 36px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .middle,
 .right {
-  width: 120px;
+  width: 30%;
 }
 
 .switch {
-  padding: 5px;
-  background-color: rgb(226, 252, 184);
+  padding: 10px;
+  background-color: #ffd166;
   border-radius: 50%;
   cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .result {
-  box-sizing: border-box;
-  width: 800px;
-  padding-left: 30px;
+  width: 80%;
+  max-width: 800px;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 button {
-  width: 100px;
-  height: 30px;
+  width: 150px;
+  height: 40px;
   font-weight: bold;
-  font-size: 20px;
-  margin-top: 15px;
-  border: 2px solid forestgreen;
-  background-color: rgb(226, 252, 184);
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  background-color: #06d6a0;
+  color: #fff;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #118ab2;
 }
 
 p,
 h3,
 button,
 .switch {
-  color: forestgreen;
+  color: #073b4c;
 }
 
 p {
-  font-size: 30px;
+  font-size: 24px;
+  margin-top: 10px;
 }
